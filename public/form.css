@@ -1,0 +1,131 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*:focus{
+    outline: none;
+}
+
+body{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:url(35682\(1\).jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+.form{
+    width: 100vw;
+    height: 100vh;
+    color: lightcoral;
+    border: 5px solid gold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+.heading{
+    opacity: 0;
+
+text-transform: capitalize;
+text-align: center;
+font-size: 50px;
+font-weight: 800 ;
+margin-bottom: 30px;
+}
+
+input,.submit-btn{
+    opacity: 0;
+    width: 400px;
+    height: 35px;
+    display: block;
+    margin: 10px auto;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    color: floralwhite;
+    padding: 15px;
+    transition: .5s;
+    text-transform: capitalize;
+}
+
+input::placeholder{
+    color: rgb(0, 255, 255);
+    font-weight: bold;
+}
+input:focus{
+    background:black;
+    color: antiquewhite;
+}
+
+input:focus::placeholder{
+    color: violet;
+}
+
+.submit-btn{
+    width: auto;
+    padding: 0px 20px;
+    cursor: pointer;
+    margin: 30px auto 0;
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.3);
+}
+.submit-btn:hover{
+    color: black;
+    background: coral
+}
+
+
+.link{
+    opacity: 0;
+    text-align: center;
+    text-transform: capitalize;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.3);
+    display: block;
+    margin: 10px auto;
+    color: lightblue;
+}
+.link:hover{
+    color: white;
+}
+
+.alert-box{
+    position: absolute;
+    top: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 150px;
+    max-width: 90%;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    text-transform: capitalize;
+    background: rgb(255, 119, 119);
+    border: 10px solid lightcoral;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    color: white;
+    text-align: center;
+    transition: 1s;
+}
+
+
+
+
+
+
+
+
+
