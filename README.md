@@ -3,7 +3,7 @@
 ## About
 
 Login-form-validation is a simple website that can run locally on any platform.
-The user can register and then log in then land on the greeting page, it will store data on Postgresql locally to validate the registered users during login process.
+The user can register and then log in then land on the greeting page, it will store data on Postgresql locally to validate the registered users during the login process.
 
 Postgresql for database, express for fetch, and post and node have been used to create this project.
 
@@ -21,7 +21,7 @@ Postgresql for database, express for fetch, and post and node have been used to 
 ## Prerequisite to run the website and server
 * Postgresql
 * NodeJs
-* Npm
+* Knex.js
 
 * To install Postgresql watch these tutorials for
   * [windows](https://www.youtube.com/watch?v=0n41UTkOBb0)
