@@ -113,6 +113,10 @@ const validateData=(data)=>{
     else{
         sessionStorage.name=data.name;
         sessionStorage.email=data.email;
+        sesstionStorage.password=data.password;
+        sessionStorage.reemail=data.reemail;
+        sessionStorage.repassword=data.repassword;
+        
         location.href ='/';
     }
 }
