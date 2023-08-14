@@ -20,10 +20,13 @@ window.onload=()=>{
 
 const name=document.querySelector('.name') || null;
 const email=document.querySelector('.email');
-const password=document.querySelector('.password');
+const password=document.querySelector('.password')||null;
 const submitBtn=document.querySelector('.submit-btn');
+const reemail=document.querySelector('.reemail')||null;
+const repassword=document.querySelector('.repassword')||null;
 
-if(name==null){
+
+if(reemail==null && repassword==null){
     //means login page is open
     submitBtn.addEventListener('click',()=>{
         fetch('/login-user',{
@@ -45,7 +48,42 @@ if(name==null){
 
 
 
-}else{
+}
+
+//forgot password 
+else if(name==null || password==null){
+
+    submitBtn.addEventListener('click',()=>{
+        fetch('/forgot-user',{
+            method : 'post',
+            headers:new Headers({'Content-Type':'application/json'}),
+            body:JSON.stringify({
+                
+                password:repassword.value
+            })
+
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            validateData(data);
+        })
+
+
+    })
+
+
+
+
+}
+
+
+
+
+
+
+
+
+else{
     //means register page is open
 
     submitBtn.addEventListener('click',()=>{

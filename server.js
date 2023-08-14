@@ -38,7 +38,10 @@ app.get('/register',(req,res)=>{
     res.sendFile(path.join(initialPath,"register.html"));
 })
 
-
+//forgot  password
+app.get('/forgot',(req,res)=>{
+    res.sendFile(path.join(initialPath,"forgot.html"));
+})
 
 
 app.post('/register-user',(req,res)=>{
@@ -90,6 +93,30 @@ app.post('/login-user',(req,res)=>{
             res.json('email or password is incorrect');
         }
     })
+})
+
+//forgot password
+
+app.post('/forgot-user',(req,res)=>{
+    const{reemail, repassword}=req.body;
+
+    db.select('password','email')
+    .from('users')
+    .update({
+        password:repassword
+    })
+    .where({
+        email:reemail
+        
+    })
+    .then(data=>{
+        if(data.length){
+            res.json(data[0]);
+        }else{
+            res.json('error');
+        }
+    })
+
 })
 
 
