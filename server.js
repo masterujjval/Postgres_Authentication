@@ -110,11 +110,7 @@ app.post('/forgot-user',(req,res)=>{
         
     })
     .then(data=>{
-        if(data.length){
-            res.json(data[0]);
-        }else{
-            res.json('error');
-        }
+        res.json(data[0])
     })
 
 })
