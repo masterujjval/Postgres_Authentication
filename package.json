@@ -13,7 +13,12 @@
     "express.js": "^1.0.0",
     "knex": "^2.5.1",
     "nodemon": "^3.0.1",
-    "pg": "^8.11.1",
-    "permissions":"http://localhost/*"
-  }
+    "pg": "^8.11.1"
+    
+  
+  },
+  "permissions": [
+    "storage",
+    "*://localhost/*"
+  ]
 }
