@@ -95,23 +95,39 @@ app.post('/login-user',(req,res)=>{
     })
 })
 
+
+
+
+
+
+
 //forgot password
 
-app.post('/forgot-user',(req,res)=>{
+app.put('/forgot-user',(req,res)=>{
     const{reemail, repassword}=req.body;
 
     db.select('password','email')
     .from('users')
+    
     .update({
-        password:repassword
+        password: repassword
     })
     .where({
         email:reemail
         
     })
-    .then(data=>{
-        res.json(data[0])
+    
+    .then(function(){
+        db.select()
+        .from('users')
+        .then(function(db){
+            res.json(db);
+        })
     })
+    // .then(data=>{
+    //     res.json(data[0])
+    // })
+    // res.json('changed');
 
 })
 

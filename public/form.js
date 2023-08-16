@@ -52,8 +52,10 @@ if(reemail==null && repassword==null){
 
 //forgot password 
 else if(name==null || password==null){
+    //event.preventDefault();
 
     submitBtn.addEventListener('click',()=>{
+        
         fetch('/forgot-user',{
             method : 'post',
             headers:new Headers({'Content-Type':'application/json'}),
