@@ -57,8 +57,9 @@ else if(name==null && password==null){
     submitBtn.addEventListener('click',()=>{
         
         fetch('/forgot-user',{
-            method : 'post',
-            headers:new Headers({'Content-Type':'application/json'}),
+            method : 'put', //post
+            headers:new Headers({'Content-Type':'application/json; charset=utf-8'}),
+            dataType:'json',
             body:JSON.stringify({
                 
                 password:repassword.value

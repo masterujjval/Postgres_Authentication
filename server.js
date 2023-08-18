@@ -103,7 +103,7 @@ app.post('/login-user',(req,res)=>{
 
 //forgot password
 
-app.put('/forgot-user',(req,res)=>{
+app.put('/forgot-user',(req,res)=>{  //changed
     const{reemail, repassword}=req.body;
 
     db.select('password','email')
@@ -118,18 +118,16 @@ app.put('/forgot-user',(req,res)=>{
     })
     
     .then(function(){
-        db.select()
-        .from('users')
-       
+       ` update "users"
+       set "password"="$repassword"
+       where "id"="$reemail";
+        `
         
-        .then(function(password){
-            res.json(password);
-        })
     })
-    // .then(data=>{
-    //     res.json(data[0])
-    // })
-    // res.json('changed');
+    .then(data=>{
+        res.json(data[0])//changed
+    })
+    res.json('changed');
 
 })
 
