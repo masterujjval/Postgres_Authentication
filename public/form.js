@@ -26,7 +26,7 @@ const reemail=document.querySelector('.reemail')||null;
 const repassword=document.querySelector('.repassword')||null;
 
 
-if(reemail==null && repassword==null){
+if(reemail==null && repassword==null && name==null){
     //means login page is open
     submitBtn.addEventListener('click',()=>{
         fetch('/login-user',{
@@ -51,7 +51,7 @@ if(reemail==null && repassword==null){
 }
 
 //forgot password 
-else if(name==null || password==null){
+else if(name==null && password==null){
     //event.preventDefault();
 
     submitBtn.addEventListener('click',()=>{

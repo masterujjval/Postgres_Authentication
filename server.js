@@ -109,19 +109,21 @@ app.put('/forgot-user',(req,res)=>{
     db.select('password','email')
     .from('users')
     
-    .update({
-        password: repassword
-    })
     .where({
         email:reemail
         
+    })
+    .update({
+        password: repassword //repassword and reemail are the classes which are created in forgot.html 
     })
     
     .then(function(){
         db.select()
         .from('users')
-        .then(function(db){
-            res.json(db);
+       
+        
+        .then(function(password){
+            res.json(password);
         })
     })
     // .then(data=>{
