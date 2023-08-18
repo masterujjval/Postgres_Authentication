@@ -80,4 +80,11 @@ CREATE TABLE users (id serial not null primary key, name varchar(255) not null, 
 ```
 Execute ```npm start``` in the vs code terminal to run the server.
 
+### Update
+
+Making changes to provide forgot password feature and is in progress. In this user will enter their email and a new password, if the entered email is correct it updates the password of that particular email.
+
+
+
+
   
