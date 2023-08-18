@@ -76,7 +76,7 @@ switch to database: ```\c loginform1```
 
 then copy the same command for creating a table:
 ```
-CREATE TABLE users (id serial not null primary key, name varchar(255) not null, email varchar(255), not null unique, password varchar(255) not null);
+CREATE TABLE users (id serial not null primary key, name varchar(255) not null, email varchar(255) not null unique, password varchar(255) not null);
 ```
 Execute ```npm start``` in the vs code terminal to run the server.
 
