@@ -135,5 +135,5 @@ app.put('/forgot-user',(req,res)=>{
 
 
 app.listen(3000,(req,res)=>{
-    console.log('lsitening on port 3000......')
+    console.log('listening on port 3000......')
 })
