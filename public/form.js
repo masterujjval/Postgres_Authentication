@@ -70,6 +70,7 @@ else if(name==null && password==null){
         .then(data=>{
             validateData(data);
         })
+        //location.href='/login';
 
 
     })

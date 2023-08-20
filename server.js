@@ -106,28 +106,29 @@ app.post('/login-user',(req,res)=>{
 app.put('/forgot-user',(req,res)=>{  //changed
     const{reemail, repassword}=req.body;
 
-    db.select('password','email')
-    .from('users')
+   // Update query
+const updateQuery = db("users")
+.where({ email:"0@gmail.com" }) // Specify the condition for the record to update
+.update({
+password:"000"
+});
+
+// Execute the update query
+updateQuery
+.then(rowsAffected => {
+  console.log(`Updated ${rowsAffected} row(s)`);
+})
+.catch(error => {
+  console.error('Error updating record:', error);
+})
+.finally(() => {
+  res.json("password changed")
+});
+
+
+
+   
     
-    .where({
-        email:reemail
-        
-    })
-    .update({
-        password: repassword //repassword and reemail are the classes which are created in forgot.html 
-    })
-    
-    .then(function(){
-       ` update "users"
-       set "password"="$repassword"
-       where "id"="$reemail";
-        `
-        
-    })
-    .then(data=>{
-        res.json(data[0])//changed
-    })
-    res.json('changed');
 
 })
 
