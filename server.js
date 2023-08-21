@@ -133,7 +133,7 @@ app.put('/forgot-user',(req,res)=>{  //changed
 
  .then(result => {
    console.log('Update successful:', result.rowCount, 'row(s) affected');
-   res.json("password changed")
+   res.json("password changed successfully \n redirecting to login page")
  })
  .catch(error => {
    console.error('Error:', error);

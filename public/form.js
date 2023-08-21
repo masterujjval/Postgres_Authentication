@@ -58,7 +58,7 @@ if(reemail==null && repassword==null && name==null){
 else if(name==null && password==null){
     //event.preventDefault();
 
-    submitBtn.addEventListener('click',(e)=>{
+    submitBtn.addEventListener('click',async (e)=>{
        e.preventDefault();
        const pass=document.getElementById("repassword").value
         const newemail=document.getElementById("reemail").value
@@ -76,8 +76,10 @@ else if(name==null && password==null){
         
         .then(res=>res.json())
         .then(data => {
-            console.log("password changed")})
-        //location.href='/login';
+            validateData(data)})
+            .then(res=>{res.json('password changed successfully \n redirecting to login page')});
+            await new Promise(resolve => setTimeout(resolve, 3000));
+        location.href='/login';
 
 
     })
@@ -124,9 +126,7 @@ const validateData=(data)=>{
     else{
         sessionStorage.name=data.name;
         sessionStorage.email=data.email;
-        sessionStorage.password=data.password;
-        sessionStorage.reemail=data.reemail;
-        sessionStorage.repassword=data.repassword;
+        
 
         location.href ='/';
     }
