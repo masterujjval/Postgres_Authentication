@@ -18,6 +18,18 @@ Postgresql for database, express for fetch, and post and node have been used to 
 
 ![Screenshot from 2023-07-29 16-38-30](https://github.com/masterujjval/Login-form-validation/assets/64778409/55062899-48b2-4bd0-9134-503e5c2a3873)
 ---
+
+### Update your password
+The password can be updated with the registered email. Enter your registered email and then enter a new password after successfully updating the password it will redirect the user to the login page. Here, enter the email and the newly updated password and then the user can successfully log in.
+
+![Screenshot from 2023-08-21 17-22-01](https://github.com/masterujjval/Login-form-validation/assets/64778409/587f1655-f3f7-48c9-a5eb-7df9acd67b05)
+
+![Screenshot from 2023-08-21 17-22-09](https://github.com/masterujjval/Login-form-validation/assets/64778409/45d33871-fb2a-4cfb-9deb-20aea4909163)
+
+
+
+
+---
 ## Prerequisite to run the website and server
 * Postgresql
 * NodeJs
