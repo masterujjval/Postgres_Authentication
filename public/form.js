@@ -22,8 +22,12 @@ const name=document.querySelector('.name') || null;
 const email=document.querySelector('.email');
 const password=document.querySelector('.password')||null;
 const submitBtn=document.querySelector('.submit-btn');
-const reemail=document.querySelector('.reemail')||null;
-const repassword=document.querySelector('.repassword')||null;
+
+const reemail=document.querySelector('#reemail');
+const repassword=document.querySelector('#repassword');
+const updatebtn=document.querySelector('#updatebtn');
+
+
 
 
 if(reemail==null && repassword==null && name==null){
@@ -54,22 +58,25 @@ if(reemail==null && repassword==null && name==null){
 else if(name==null && password==null){
     //event.preventDefault();
 
-    submitBtn.addEventListener('click',()=>{
-        
+    submitBtn.addEventListener('click',(e)=>{
+       e.preventDefault();
+       const pass=document.getElementById("repassword").value
+        const newemail=document.getElementById("reemail").value
         fetch('/forgot-user',{
+            
             method : 'put', //post
             headers:new Headers({'Content-Type':'application/json; charset=utf-8'}),
             dataType:'json',
             body:JSON.stringify({
-                
-                password:repassword.value
+                reemail:newemail,
+                repassword:pass
             })
 
         })
+        
         .then(res=>res.json())
-        .then(data=>{
-            validateData(data);
-        })
+        .then(data => {
+            console.log("password changed")})
         //location.href='/login';
 
 

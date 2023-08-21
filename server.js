@@ -2,7 +2,15 @@ const express =require('express');
 const path=require ('path');
 const bodyParser = require('body-parser');
 const knex = require('knex');
+const { Client } = require('pg');
 
+const client = new Client({
+    host: '127.0.0.1',
+    user:'postgres',
+    password:'123456',
+    database:'loginform1',
+  port: 5432, // Default PostgreSQL port
+});
 
 
 const db=knex({
@@ -18,6 +26,9 @@ const db=knex({
 
 
 const app=express();
+
+app.use(bodyParser.json());
+
 
 let initialPath=path.join(__dirname,"public");
 
@@ -42,6 +53,8 @@ app.get('/register',(req,res)=>{
 app.get('/forgot',(req,res)=>{
     res.sendFile(path.join(initialPath,"forgot.html"));
 })
+
+
 
 
 app.post('/register-user',(req,res)=>{
@@ -101,36 +114,41 @@ app.post('/login-user',(req,res)=>{
 
 
 
-//forgot password
+// //forgot password
 
 app.put('/forgot-user',(req,res)=>{  //changed
     const{reemail, repassword}=req.body;
-
+    
+    client.connect()
    // Update query
-const updateQuery = db("users")
-.where({ email:"0@gmail.com" }) // Specify the condition for the record to update
-.update({
-password:"000"
-});
+   const updateQuery = `
+   UPDATE users
+   SET password = $1
+   WHERE email = $2
+ `;
 
-// Execute the update query
-updateQuery
-.then(rowsAffected => {
-  console.log(`Updated ${rowsAffected} row(s)`);
-})
-.catch(error => {
-  console.error('Error updating record:', error);
-})
-.finally(() => {
-  res.json("password changed")
-});
+   // Execute the update query
+   return client.query(updateQuery, [repassword, reemail] )
+
+
+ .then(result => {
+   console.log('Update successful:', result.rowCount, 'row(s) affected');
+   res.json("password changed")
+ })
+ .catch(error => {
+   console.error('Error:', error);
+ })
+ .finally(() => {
+   // Close the database connection
+   client.end();
+ });
 
 
 
    
     
 
-})
+ })
 
 
 app.listen(3000,(req,res)=>{
