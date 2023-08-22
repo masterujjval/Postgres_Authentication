@@ -92,6 +92,8 @@ CREATE TABLE users (id serial not null primary key, name varchar(255) not null, 
 ```
 Execute ```npm start``` in the vs code terminal to run the server.
 
+Update.js  file does not have any role in running all the files it is just to understand the update query. It can be run using node update.js in the terminal separately.
+
 
 
 
