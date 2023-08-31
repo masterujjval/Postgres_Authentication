@@ -70,7 +70,7 @@ psql -d loginform1
 
 Now copy the below lines to create a table to register users
 ```
-CREATE TABLE users (id serial not null primary key, name varchar(255) not null, email varchar(255), not null unique, password varchar(255) not null);
+CREATE TABLE users (id serial not null primary key, name varchar(255) not null, email varchar(255) not null unique, password varchar(255) not null);
 ```
 run : ```SELECT * FROM users;``` to check whether the table is created or not.
 
